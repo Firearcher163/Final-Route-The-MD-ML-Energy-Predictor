@@ -1,12 +1,13 @@
-# 🧬 Molecular Simulation and Protein Embedding Analysis
+#  The MD→ML Energy Predictor
 
-## 📌 Project Summary
+## What is this Project About?
 
-This project combines molecular dynamics (MD) simulations and protein embedding techniques to analyze structural and thermodynamic properties of biomolecular systems. Using simulation outputs (positions, velocities, forces) and learned protein representations, we investigate system behavior, compute physical properties (e.g., temperature, density, energy), and generate peptide structures for further analysis.
+This project combines OpenMM molecular dynamics simulations and protein machine learning models to construct a model that can guess the energy of a given protein based on OpenMM data. OpenMM data provides classical physics measurements such as the positions, velocites, and forces that will be the core features that supply the model the infomation to guess the energy of small peptides. This project also incldues an introduction to OpenMM portion that allows newcomers to learn about OpenMM before applying it to a novel situation. 
+
 
 ---
 
-## 🧠 Biological Problem & Motivation
+##  Biological Problem & Motivation
 
 Understanding how molecular structure relates to function is a central challenge in computational biology. Molecular dynamics simulations provide atomistic insight into physical behavior, while protein embeddings encode sequence-level information. This project explores how these computational tools can be used together to:
 
@@ -16,7 +17,7 @@ Understanding how molecular structure relates to function is a central challenge
 
 ---
 
-## 📊 Data Sources
+## Data Sources
 
 * **Molecular Dynamics Data**: Generated using OpenMM simulations (positions, velocities, forces, temperature, density, energy).
 * **Protein Embeddings**: Precomputed embeddings stored as `.pkl` files (`{uniprot_id: (L, 1280)}` format).
@@ -191,6 +192,6 @@ jupyter notebook
 
 * OpenMM for molecular simulation tools
 * RDKit for cheminformatics workflows
-* ESM embeddings for protein representation learning
+* Thank You to Dr. Crabtree at UCD for 
 
 ---
