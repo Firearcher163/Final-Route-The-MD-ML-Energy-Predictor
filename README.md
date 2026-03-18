@@ -13,7 +13,7 @@ Understanding how molecular structure relates to function is a central challenge
 
 * Analyze thermodynamic stability
 * Characterize molecular motion
-* Generate and study peptide structures
+* 
 
 ---
 
