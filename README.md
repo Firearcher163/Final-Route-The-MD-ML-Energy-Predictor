@@ -9,11 +9,7 @@ This project combines OpenMM molecular dynamics simulations and protein machine 
 
 ##  Biological Problem & Motivation
 
-Understanding how molecular structure relates to function is a central challenge in computational biology. Molecular dynamics simulations provide atomistic insight into physical behavior, while protein embeddings encode sequence-level information. This project explores how these computational tools can be used together to:
-
-* Analyze thermodynamic stability
-* Characterize molecular motion
-* 
+Molecules don't exist in a vacuum. They exist in environments that applies forces to the molecule. The simulate this reality we can use molecular dynamic simulations and OpenMM. With OpenMM, we can make more accurate and realistic measurements of energies and structral features of molecules. This project hopes to use these features to train a ML model to get more accurate predictions in finding the energy of molecules.
 
 ---
 
@@ -21,7 +17,7 @@ Understanding how molecular structure relates to function is a central challenge
 
 * **Xenon**: Xenon-pdb and xml forces. Courtesy of Dr. Crabtree from UCD.
 * **RCSB PDB**: All PDB files came raw from the RCSB PDB in the PDB_Six_Peptides.zip
-* **Amber and tip3d**: Standard Protein and Water Force Field Environement.Courtesy of Amber.
+* **Amber and tip3d**: Standard Protein and Water Force Field Environement. Courtesy of Amber.
 
 ---
 
@@ -36,99 +32,84 @@ Understanding how molecular structure relates to function is a central challenge
 * RCSB PDB Six Peptide Files: https://github.com/Firearcher163/Final-Route-The-MD-ML-Energy-Predictor/blob/main/Ex%203-5%20Materials/PDB_Six_Peptides.zip
 
 
-## ⚙️ Computational Approach
+## Computational Approach
 
 ### Workflow Overview
 
-1. **Simulation Analysis**
+1. **Tutorial to OpenMM**
 
-   * Extract positions, velocities, and forces
-   * Convert nested lists → structured DataFrame
-   * Compute thermodynamic quantities (pressure, energy)
+   * Work with a simple model Xenon
+   * Understand All the Basic Tools of OpenMM
+   * Run Our First OpenMM Simulation
 
 2. **Statistical Visualization**
 
    * Scatter plots (properties vs steps)
    * Histograms (distribution of properties)
+   * Show an overall scope of the type of data OpenMM generates and how we can use it.
+   * Application to Thermodynamic Model: Ideal Gas Law
 
-3. **Thermodynamic Modeling**
+3. **Working with Real PDB Files**
 
-   * Apply ideal gas law:
-     ( PV = nRT )
-   * Relate pressure, density, and temperature
-   * Compute internal energy:
-     ( U = \frac{3}{2}PV )
+   * Use real raw PDB files from the RCSB
+   * Filtering them to the ones that work with OpenMM and Amber Fields
+   * Apply OpenMM to generate data from real PDB files
 
-4. **Peptide Generation**
+5. **Training a ML Model**
 
-   * Convert amino acid SMILES → dipeptides using reaction SMARTS
-   * Generate 3D structures with RDKit
-   * Export as PDB files
-
-5. **Visualization**
-
-   * Render peptide structures using py3Dmol
+   * Use the data from an OpenMM simuation as features to predict the energy
+   * Energy is already accuracy calculated using OpenMM
+   * Learned about Clustering based on Entry
 
 ---
 
-## 🧪 Route Design & Implementation
+## Route Design & Implementation
 
 This project followed a multi-stage computational route:
 
-* Built pipelines for handling MD simulation outputs
-* Designed transformations from nested simulation data → tabular format
-* Implemented thermodynamic calculations from first principles
-* Developed a peptide generation workflow using reaction SMARTS
-* Created visualization tools for both statistical data and 3D structures
+* Establish OpenMM fundamentals
+* Visualized and Recorded OpenMM data
+* Apply the data to othe chemical problems
+* Filter real RCSB PDB data for OpenMM
+* Construction of a Energy Prdiction ML model
 
 ---
 
-## 📈 Results Summary
+## Results Summary
 
 ### Key Findings
 
-* Temperature and density stabilize after equilibration
-* Energy fluctuates without significant drift, indicating simulation stability
-* Pressure and internal energy show a linear relationship consistent with:
-  [
-  U = \frac{3}{2}PV
-  ]
-
-### Example Outputs
-
-* Scatter plots: Temperature, Density, Energy vs Steps
-* Histograms: Distribution of thermodynamic variables
-* Generated PDB files for 10 dipeptides
-* 3D visualizations of peptide structures
+Scatter Plots and Histrograms of the Flucations of OpenMM Data (In the Notebook)
+Generation of Data USing OpenMM
+Construction of a Model to Predict Energy of Molecules using OpenMM data
 
 ---
 
-## 🔍 Interpretation & Limitations
+## Interpretation, Limitations, and Next Steps
 
 ### Interpretation
 
-* Simulation behaves as expected for an equilibrated system
-* Ideal gas approximations provide reasonable trends
-* Generated peptides demonstrate correct bonding and geometry
+* I don't think anything conclusive happened in this route as the results are inconclusive.
+* At least, this routes establishes how ot use OpenMM proficiently
 
 ### Limitations
 
-* Ideal gas law is an approximation (not fully accurate for condensed phases)
-* Peptide generation does not include full biochemical context (e.g., solvent, termini states)
-* Embedding analysis limited to precomputed features
+* Only generated data was used, not experimental
+* Relationship betwee physical components and eneries is questionable
+* Couldn't generate peptide for Amber
 
 ---
 
-## 🚀 Next Steps
+##  Next Steps
 
-* Incorporate explicit solvent simulations
-* Improve peptide modeling (correct termini, longer chains)
-* Apply machine learning models to embeddings
-* Compare MD-derived features with embedding-based predictions
+* Can I use the OpenMM data better to create a more accurate model
+* How I can get the Amber forces to work with custom peptides
+* How can I visualize the growth of my model using graphs.
+
 
 ---
 
-## 🔁 Reproducibility
+##  Reproducibility
 
 ### Requirements
 
@@ -138,32 +119,8 @@ This project followed a multi-stage computational route:
 * pandas, numpy
 * seaborn, matplotlib
 * py3Dmol
+* sklearn
 
-### Setup
-
-```bash
-pip install pandas numpy matplotlib seaborn py3Dmol
-# RDKit and OpenMM may require conda:
-conda install -c conda-forge rdkit openmm
+* The notebook should run fine as is.
 ```
 
-### Run Analysis
-
-1. Clone repository:
-
-```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
-```
-
-2. Run notebooks:
-
-```bash
-jupyter notebook
-```
-
-3. Execute:
-
-* MD analysis notebook
-* Embedding analysis notebook
-* Peptide generation script
