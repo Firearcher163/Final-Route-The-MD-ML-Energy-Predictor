@@ -19,11 +19,22 @@ Understanding how molecular structure relates to function is a central challenge
 
 ## Data Sources
 
-* **Molecular Dynamics Data**: Generated using OpenMM simulations (positions, velocities, forces, temperature, density, energy).
-* **Protein Embeddings**: Precomputed embeddings stored as `.pkl` files (`{uniprot_id: (L, 1280)}` format).
-* **Amino Acid SMILES**: Custom CSV containing 20 standard amino acids used to generate peptide structures.
+* **Xenon**: Xenon-pdb and xml forces. Courtesy of Dr. Crabtree from UCD.
+* **RCSB PDB**: All PDB files came raw from the RCSB PDB in the PDB_Six_Peptides.zip
+* **Amber and tip3d**: Standard Protein and Water Force Field Environement.Courtesy of Amber.
 
 ---
+
+## Links to Key Files
+
+* Solution Notebook: https://github.com/Firearcher163/Final-Route-The-MD-ML-Energy-Predictor/blob/main/Do_William_Final_Solution_CHEM269%20(1).ipynb
+* Route Document: https://github.com/Firearcher163/Final-Route-The-MD-ML-Energy-Predictor/blob/main/Do_William_Final_Route_CHEM169_269.pdf.docx
+* Xenon-27 Cube PDB: https://github.com/Firearcher163/Final-Route-The-MD-ML-Energy-Predictor/blob/main/Ex%200-2%20Materials/xe-27.pdb
+* Xenon Force Field: https://github.com/Firearcher163/Final-Route-The-MD-ML-Energy-Predictor/blob/main/Ex%200-2%20Materials/xenon.xml
+* Amber Force Field (Proteins): https://github.com/Firearcher163/Final-Route-The-MD-ML-Energy-Predictor/blob/main/Ex%203-5%20Materials/amber14-all.xml
+* Amber Force Field (Water): https://github.com/Firearcher163/Final-Route-The-MD-ML-Energy-Predictor/blob/main/Ex%203-5%20Materials/tip3p.xml
+* RCSB PDB Six Peptide Files: https://github.com/Firearcher163/Final-Route-The-MD-ML-Energy-Predictor/blob/main/Ex%203-5%20Materials/PDB_Six_Peptides.zip
+
 
 ## ⚙️ Computational Approach
 
@@ -156,42 +167,3 @@ jupyter notebook
 * MD analysis notebook
 * Embedding analysis notebook
 * Peptide generation script
-
----
-
-## 📁 Repository Structure
-
-```
-├── data/
-│   ├── protein_embeddings.pkl
-│   └── amino_acids.csv
-├── notebooks/
-│   ├── md_analysis.ipynb
-│   ├── embedding_analysis.ipynb
-├── scripts/
-│   ├── peptide_generation.py
-├── outputs/
-│   ├── plots/
-│   ├── pdb_files/
-├── README.md
-```
-
----
-
-## 🔗 Links to Key Files
-
-* 📓 MD Analysis Notebook: `notebooks/md_analysis.ipynb`
-* 📓 Embedding Analysis: `notebooks/embedding_analysis.ipynb`
-* 🧪 Peptide Generator: `scripts/peptide_generation.py`
-* 📊 Output Figures: `outputs/plots/`
-* 🧬 Generated PDBs: `outputs/pdb_files/`
-
----
-
-## 🙌 Acknowledgments
-
-* OpenMM for molecular simulation tools
-* RDKit for cheminformatics workflows
-* Thank You to Dr. Crabtree at UCD for 
-
----
